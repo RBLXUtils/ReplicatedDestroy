@@ -7,9 +7,7 @@ local Remote: RemoteEvent do
 	if IsClient then
 		Remote = script:WaitForChild("Replicator")
 
-		Remote.OnClientEvent:Connect(function(instance: Instance)
-			instance:Destroy()
-		end)
+		Remote.OnClientEvent:Connect(game.Destroy)
 	else
 		Remote = Instance.new("RemoteEvent")
 		Remote.Name = "Replicator"
