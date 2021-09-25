@@ -1,2 +1,2 @@
-# Destroy
-A :Destroy function which replicates to clients!
+# ReplicatedDestroy
+An Instance destroy function which replicates `:Destroy` calls to clients!
