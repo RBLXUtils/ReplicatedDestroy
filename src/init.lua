@@ -5,7 +5,7 @@ local IsClient: boolean = RunService:IsClient()
 
 local Remote: RemoteEvent do
 	if IsClient then
-		Remote = script:WaitForChild("Replicator")
+		Remote = script:WaitForChild("Replicator") :: RemoteEvent
 
 		Remote.OnClientEvent:Connect(game.Destroy)
 	else
