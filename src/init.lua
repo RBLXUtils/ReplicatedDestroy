@@ -16,16 +16,16 @@ local Remote: RemoteEvent do
 	end
 end
 
-if IsClient then
+if IsClient == false then
+	return function(instance: Instance)
+		assert(
+			typeof(instance) == 'Instance',
+			"Must be instance"
+		)
+
+		instance:Destroy()
+		Remote:FireAllClients(instance)
+	end
+else
 	return game.Destroy
-end
-
-return function(instance: Instance)
-	assert(
-		typeof(instance) == 'Instance',
-		"Must be instance"
-	)
-
-	instance:Destroy()
-	Remote:FireAllClients(instance)
 end
