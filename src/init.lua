@@ -1,4 +1,4 @@
--- Destroy.lua
+-- ReplicatedDestroy.lua
 
 local RunService = game:GetService("RunService")
 local IsClient: boolean = RunService:IsClient()
