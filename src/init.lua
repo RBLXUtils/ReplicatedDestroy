@@ -4,7 +4,6 @@ local RunService = game:GetService("RunService")
 local IsServer: boolean = RunService:IsServer()
 local IsClient: boolean = not IsServer
 
-
 local Remote: RemoteEvent do
 	if IsClient then
 		Remote = script:WaitForChild("Replicator")
@@ -17,7 +16,6 @@ local Remote: RemoteEvent do
 		Remote.Parent = script
 	end
 end
-
 
 return function(instance: Instance)
 	assert(
