@@ -1,11 +1,13 @@
 -- ReplicatedDestroy.lua
 
 local RunService = game:GetService("RunService")
-local IsClient: boolean = RunService:IsClient()
+local IsServer: boolean = RunService:IsServer()
+local IsClient: boolean = not IsServer
+
 
 local Remote: RemoteEvent do
 	if IsClient then
-		Remote = script:WaitForChild("Replicator") :: RemoteEvent
+		Remote = script:WaitForChild("Replicator")
 
 		Remote.OnClientEvent:Connect(game.Destroy)
 	else
@@ -16,6 +18,7 @@ local Remote: RemoteEvent do
 	end
 end
 
+
 return function(instance: Instance)
 	assert(
 		typeof(instance) == 'Instance',
@@ -23,7 +26,7 @@ return function(instance: Instance)
 	)
 
 	instance:Destroy()
-	if IsClient == false then
+	if IsServer then
 		Remote:FireAllClients(instance)
 	end
 end
