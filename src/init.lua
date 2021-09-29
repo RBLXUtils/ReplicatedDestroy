@@ -8,7 +8,7 @@ local Remote: RemoteEvent do
 	if IsClient then
 		Remote = script:WaitForChild("Replicator")
 
-		Remote.OnClientEvent:Connect(function(instance: Instance?)
+		Remote.OnClientEvent:Connect(function(instance: Instance)
 			if instance == nil then
 				return
 			end
