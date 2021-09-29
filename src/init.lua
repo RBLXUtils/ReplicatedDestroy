@@ -23,6 +23,9 @@ local Remote: RemoteEvent do
 	end
 end
 
+-- Destroys an instance, replicating such destroy to the client,
+-- telling such client that that instance must be destroyed on the
+-- client side as well, helps with memory leaks when using replicated Instances
 return function(instance: Instance)
 	assert(
 		typeof(instance) == 'Instance',
