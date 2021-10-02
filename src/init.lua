@@ -2,7 +2,7 @@
 
 local RunService = game:GetService("RunService")
 local IsServer: boolean = RunService:IsServer()
-local IsClient: boolean = not IsServer
+local IsClient: boolean = RunService:IsClient()
 
 local Remote: RemoteEvent do
 	if IsClient then
